@@ -35,6 +35,7 @@ const WeddingInvitation = styled.p`
   font-size: 0.825rem;
   opacity: 0.45;
   margin-bottom: 16px;
+  color: black;
 `;
 
 const GroomBride = styled.p`
@@ -48,6 +49,8 @@ const Schedule = styled.p`
   font-size: 1.06rem;
   opacity: 0.65;
   margin-bottom: 24px;
+  // color: #c7000d;
+  color: rgb(120 34 34);
 `;
 const Title = () => {
   return (
@@ -55,7 +58,8 @@ const Title = () => {
       <TitleWrapper>
         <WeddingInvitation>WEDDING INVITATION</WeddingInvitation>
         <GroomBride>
-          {GROOM_NAME} &#38; {BRIDE_NAME}
+          {/* {GROOM_NAME} &#38; {BRIDE_NAME} */}
+          {BRIDE_NAME} &#38; {GROOM_NAME}
         </GroomBride>
         <Schedule>
           {WEDDING_DATE}

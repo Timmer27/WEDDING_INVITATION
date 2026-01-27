@@ -35,91 +35,86 @@ const Content = styled.p`
   margin: 0;
 `;
 
-const Map = styled.div`
+const MapBox = styled.div`
   width: 100%;
   padding: 0;
 `;
 
 const Location = () => {
-  // 카카오 맵 불러오기
-
-  // <!-- 3. 실행 스크립트 -->
-  const executeScript = () => {
-    const scriptTag = document.createElement("script");
-    const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
-    "timestamp" : "1652464367301",
-    "key" : "2a8fe",
-    "mapWidth" : "640",
-    "mapHeight" : "360"
-  }).render();`);
-    scriptTag.appendChild(inlineScript);
-    document.body.appendChild(scriptTag);
-  };
-
-  // <!-- 2. 설치 스크립트 * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다. -->
-  // document.write 문제가 발생해서 해당 파일을 직접 가져온다음 수정했음
-  const InstallScript = () => {
-    (function () {
-      let c = window.location.protocol === "https:" ? "https:" : "http:";
-      let a = "16137cec";
-
-      if (window.daum && window.daum.roughmap && window.daum.roughmap.cdn) {
-        return;
-      }
-      window.daum = window.daum || {};
-      window.daum.roughmap = {
-        cdn: a,
-        URL_KEY_DATA_LOAD_PRE: c + "//t1.daumcdn.net/roughmap/",
-        url_protocal: c,
-      };
-      let b =
-        c +
-        "//t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/" +
-        a +
-        "/roughmapLander.js";
-
-      // document.write -> doumnet.body.append로 수정
-      const scriptTag = document.createElement("script");
-      scriptTag.src = b;
-      document.body.append(scriptTag);
-      scriptTag.onload = () => {
-        executeScript();
-      };
-    })();
-  };
+  // ✅ 퍼가기 코드에 나온 timestamp/key를 "한 세트"로 맞추세요
+  const ROUGHMAP_TIMESTAMP = "1769527179433";
+  const ROUGHMAP_KEY = "gqpnj9g6pj9"; // <- 실제 퍼가기 코드의 key로 맞추기
+  const CONTAINER_ID = `daumRoughmapContainer${ROUGHMAP_TIMESTAMP}`;
 
   useEffect(() => {
-    InstallScript();
-  }, [InstallScript]);
+    // React 18 StrictMode(dev)에서 effect 2번 실행될 수 있어 중복 방지
+    const scriptId = "kakao-roughmap-lander";
+    const existing = document.getElementById(scriptId);
+
+    const renderMap = () => {
+      if (!window.daum?.roughmap?.Lander) return;
+
+      // 이미 렌더된 경우 중복 방지 (필요 시 컨테이너 비우기)
+      const container = document.getElementById(CONTAINER_ID);
+      if (!container) return;
+
+      // container.innerHTML = ""; // 필요하면 주석 해제 (중복 렌더 방지용)
+
+      new window.daum.roughmap.Lander({
+        timestamp: ROUGHMAP_TIMESTAMP,
+        key: ROUGHMAP_KEY,
+        mapWidth: "640",
+        mapHeight: "360",
+      }).render();
+    };
+
+    if (existing) {
+      // 스크립트가 이미 있으면 바로 렌더 시도
+      renderMap();
+      return;
+    }
+
+    // ✅ roughmapLander.js 로드
+    const c = window.location.protocol === "https:" ? "https:" : "http:";
+    const a = "16137cec";
+    const src =
+      c +
+      "//t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/" +
+      a +
+      "/roughmapLander.js";
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src = src;
+    script.async = true;
+    script.onload = renderMap;
+
+    document.head.appendChild(script);
+
+    // cleanup (선택)
+    return () => {
+      // 보통은 스크립트를 지우지 않는 편이 안전합니다.
+      // 필요하면 여기서 map cleanup 로직만 추가하세요.
+    };
+  }, []);
 
   return (
     <Wrapper>
       <Divider plain style={{ marginTop: 0, marginBottom: 32 }}>
         <Title>오시는 길</Title>
       </Divider>
-      <Image src={Flower} />
-      <Map
-        id="daumRoughmapContainer1652464367301"
+
+      <Image src={Flower} alt="flower" />
+
+      <MapBox
+        id={CONTAINER_ID}
         className="root_daum_roughmap root_daum_roughmap_landing"
-      ></Map>
+      />
+
       <Content>
-        대구 수성구 두산동 888-2번지
+        강원 강릉시 해안로406번길 2
         <br />
-        호텔수성 수성스퀘어 3층 피오니홀
-        <br />
-        <br />
-        <Title>버스 이용시</Title>
-        <br />
-        <br />
-        410-1, 401 호텔수성 앞 하차
-        <br />
-        수성1-1, 수성3-1, 814 TBC방송국 앞 하차
-        <br />
-        <br />
-        <Title>지하철 이용시</Title>
-        <br />
-        <br />
-        3호선 수성못역 하차 (도보 10분)
+        씨마크호텔
       </Content>
     </Wrapper>
   );
