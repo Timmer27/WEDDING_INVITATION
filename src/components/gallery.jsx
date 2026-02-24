@@ -28,6 +28,7 @@ import GalleryPhoto16 from "../assets/Gallery_Photo_16.jpg";
 import GalleryPhoto17 from "../assets/Gallery_Photo_17.jpg";
 import GalleryPhoto18 from "../assets/Gallery_Photo_18.jpg";
 import GalleryPhoto19 from "../assets/Gallery_Photo_19.jpg";
+import GalleryPhoto20 from "../assets/Gallery_Photo_20.webp";
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -105,10 +106,10 @@ const images = [
     original: GalleryPhoto14,
     thumbnail: GalleryPhoto14,
   },
-  {
-    original: GalleryPhoto0,
-    thumbnail: GalleryPhoto0,
-  },
+  // {
+  //   original: GalleryPhoto0,
+  //   thumbnail: GalleryPhoto0,
+  // },
   {
     original: GalleryPhoto16,
     thumbnail: GalleryPhoto16,
@@ -125,10 +126,10 @@ const images = [
     original: GalleryPhoto19,
     thumbnail: GalleryPhoto19,
   },
-  // {
-  //   original: GalleryPhoto20,
-  //   thumbnail: GalleryPhoto20,
-  // },
+  {
+    original: GalleryPhoto20,
+    thumbnail: GalleryPhoto20,
+  },
 ];
 
 const Gallery = () => {
@@ -136,6 +137,7 @@ const Gallery = () => {
     <Wrapper>
       <Divider style={{ marginTop: 0, marginBottom: 32 }} plain>
         <Title>우리의 아름다운 순간</Title>
+        <Title>넘겨보세요!</Title>
       </Divider>
       <ImageGallery
         showPlayButton={false}
