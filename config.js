@@ -1,10 +1,12 @@
-export const WEDDING_INVITATION_URL = "https://eodate.netlify.app/";
+export const WEDDING_INVITATION_URL = "https://eodate.netlify.app";
+// export const WEDDING_INVITATION_URL = "https://naver.com";
 export const KAKAOTALK_API_TOKEN = "eb122b8d6bf551a5c49ada625170fb84";
 export const KAKAOTALK_SHARE_IMAGE =
   "https://i.postimg.cc/L64rx20X/Gallery-Photo-PF.jpg";
 
-export const WEDDING_DATE = "2026년 05월 24일, 일요일 오후 1시 00분";
-export const WEDDING_LOCATION = "씨마크호텔 웨딩";
+export const WEDDING_DATE = "2026년 05월 24일";
+export const WEDDING_DATE2 = "일요일 오후 1시 00분";
+export const WEDDING_LOCATION = "강릉 씨마크호텔 웨딩";
 
 export const GROOM_NAME = "이종호";
 export const GROOM_ACCOUNT_NUMBER = "국민은행 945802-00-321899";

@@ -5,6 +5,7 @@ import {
   WEDDING_LOCATION,
   GROOM_NAME,
   BRIDE_NAME,
+  WEDDING_DATE2,
 } from "../../config.js";
 import GalleryPhoto15 from "../assets/Gallery_Photo_15.jpg";
 
@@ -58,10 +59,12 @@ const Title = () => {
         <WeddingInvitation>WEDDING INVITATION</WeddingInvitation>
         <GroomBride>
           {/* {GROOM_NAME} &#38; {BRIDE_NAME} */}
-          {GROOM_NAME} &#38; {BRIDE_NAME}
+          {GROOM_NAME} 🩷 {BRIDE_NAME}
         </GroomBride>
         <Schedule>
           {WEDDING_DATE}
+          <br />
+          {WEDDING_DATE2}
           <br />
           {WEDDING_LOCATION}
         </Schedule>

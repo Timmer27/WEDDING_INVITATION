@@ -31,11 +31,11 @@ const IndexPage = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
+    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js";
     document.body.appendChild(script);
 
     return () => {
-      document.body.romoveChile(script);
+      document.body.removeChild(script);
     };
   }, []);
 
