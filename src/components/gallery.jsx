@@ -3,7 +3,6 @@ import ImageGallery from "react-image-gallery";
 import { Divider } from "antd";
 import styled from "styled-components";
 
-// import GalleryPhoto1 from "../assets/Gallery_Photo_1.webp";
 import GalleryPhoto0 from "../assets/Gallery_Photo_0.jpg";
 import GalleryPhoto1 from "../assets/Gallery_Photo_1.jpg";
 // import GalleryPhoto2 from "../assets/Gallery_Photo_2.webp";
@@ -19,7 +18,7 @@ import GalleryPhoto6 from "../assets/Gallery_Photo_6.jpg";
 import GalleryPhoto7 from "../assets/Gallery_Photo_7.jpg";
 import GalleryPhoto8 from "../assets/Gallery_Photo_8.jpg";
 import GalleryPhoto9 from "../assets/Gallery_Photo_9.jpg";
-import GalleryPhoto10 from "../assets/Gallery_Photo_10.jpg";
+// import GalleryPhoto10 from "../assets/Gallery_Photo_10.jpg";
 import GalleryPhoto11 from "../assets/Gallery_Photo_11.jpg";
 import GalleryPhoto12 from "../assets/Gallery_Photo_12.jpg";
 import GalleryPhoto13 from "../assets/Gallery_Photo_13.jpg";
@@ -29,7 +28,6 @@ import GalleryPhoto16 from "../assets/Gallery_Photo_16.jpg";
 import GalleryPhoto17 from "../assets/Gallery_Photo_17.jpg";
 import GalleryPhoto18 from "../assets/Gallery_Photo_18.jpg";
 import GalleryPhoto19 from "../assets/Gallery_Photo_19.jpg";
-import GalleryPhoto20 from "../assets/Gallery_Photo_20.jpg";
 
 const Wrapper = styled.div`
   padding-top: 42px;
@@ -51,6 +49,10 @@ const images = [
     original: GalleryPhoto1,
     thumbnail: GalleryPhoto1,
   },
+  {
+    original: GalleryPhoto0,
+    thumbnail: GalleryPhoto0,
+  },  
   {
     original: GalleryPhoto2,
     thumbnail: GalleryPhoto2,
@@ -83,10 +85,10 @@ const images = [
     original: GalleryPhoto9,
     thumbnail: GalleryPhoto9,
   },
-  {
-    original: GalleryPhoto10,
-    thumbnail: GalleryPhoto10,
-  },
+  // {
+  //   original: GalleryPhoto10,
+  //   thumbnail: GalleryPhoto10,
+  // },
   {
     original: GalleryPhoto11,
     thumbnail: GalleryPhoto11,
@@ -103,10 +105,10 @@ const images = [
     original: GalleryPhoto14,
     thumbnail: GalleryPhoto14,
   },
-  // {
-  //   original: GalleryPhoto15,
-  //   thumbnail: GalleryPhoto15,
-  // },
+  {
+    original: GalleryPhoto0,
+    thumbnail: GalleryPhoto0,
+  },
   {
     original: GalleryPhoto16,
     thumbnail: GalleryPhoto16,
@@ -123,10 +125,10 @@ const images = [
     original: GalleryPhoto19,
     thumbnail: GalleryPhoto19,
   },
-  {
-    original: GalleryPhoto20,
-    thumbnail: GalleryPhoto20,
-  },
+  // {
+  //   original: GalleryPhoto20,
+  //   thumbnail: GalleryPhoto20,
+  // },
 ];
 
 const Gallery = () => {
