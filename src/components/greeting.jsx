@@ -59,19 +59,41 @@ const Greeting = () => {
       </Divider>
       <Image data-aos="fade-up" src={Flower} />
       <Content data-aos="fade-up">
-        서로 마주 보며 다져온 사랑을
+        첫 눈이 소복이 내리던 겨울,
+        <br />
+        같은 초성을 가진 두 사람이 만나
+        <br />
+        서로를 향해 흘러온 시간을 마주한 순간,
+        <br />
+        우리는 한눈에 서로를 알아보았습니다.
         <br />
         <br />
-        이제 함께 한곳을 바라보며 걸어갈 수 있는
+        사계절을 함께 걸으며 천천히, 그리고 곱게 사랑을 피워온 우리는
+        <br />
+        이제 ‘부부’라는 이름으로 또 하나의 계절을 시작하려 합니다.
         <br />
         <br />
-        큰 사랑으로 키우고자 합니다.
+        의견이 다를 때에도 <span style={{ color: "var(--title-color)", fontWeight: 900, fontSize: "1.1em" }}>지</span>나치지 않고,
+        <br />
+        서로의 마음을 <span style={{ color: "var(--title-color)", fontWeight: 900, fontSize: "1.1em" }}>현</span>명하고 부드럽게 다독이며,
+        <br />
+        다툼보다는 이해로 하루를 채우겠습니다.
         <br />
         <br />
-        저희 두 사람이 사랑의 이름으로 지켜나갈 수 있게
+        <span style={{ color: "var(--title-color)", fontWeight: 900, fontSize: "1.1em" }}>종</span>일토록 함께할 수 있음에 감사하며,
+        <br />
+        마치 숨 쉬는 <span style={{ color: "var(--title-color)", fontWeight: 900, fontSize: "1.1em" }}>호</span>흡처럼 자연스럽고 편안한 사랑을
+        <br />
+        평생 지켜나갈 것을 약속드립니다.
         <br />
         <br />
-        앞날을 축복해 주시면 감사하겠습니다.
+        소중한 분들 앞에서 그 약속을 나누는 날,
+        <br />
+        기꺼이 발걸음 해주시어
+        <br />
+        저희의 시작에 따스한 축복을 더해주신다면
+        <br />
+        더없는 기쁨이 될 것입니다.
       </Content>
       <GroomBride data-aos="fade-up">
         {GROOM_FATHER_NAME} · {GROOM_MOTHER_NAME}의 장남 {GROOM_NAME}

@@ -39,15 +39,16 @@ const Quote = () => {
     <Wrapper>
       <Image src={Flower} data-aos="fade-up" />
       <Content data-aos="fade-up">
-        장담하건대. 세상이 다 겨울이어도
-        <br />
-        우리 사랑은 늘봄처럼 따뜻하고
-        <br />
-        간혹, 여름처럼 뜨거울 겁니다
+        - 오지현, (우리라는 계절) -
         <br />
         <br />
-        - 이수동, (사랑가) -
+        봄의 우리는 꽃과 함께 사랑을 피우고
         <br />
+        여름의 우리는 햇살과 함께 사랑을 키우며
+        <br />
+        가을의 우리는 단풍과 함께 사랑을 물들이고
+        <br />
+        겨울의 우리는 눈과 함께 사랑을 쌓아간다
         <br />
       </Content>
     </Wrapper>

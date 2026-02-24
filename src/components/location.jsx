@@ -42,8 +42,8 @@ const MapBox = styled.div`
 
 const Location = () => {
   // ✅ 퍼가기 코드에 나온 timestamp/key를 "한 세트"로 맞추세요
-  const ROUGHMAP_TIMESTAMP = "1769527179433";
-  const ROUGHMAP_KEY = "gqpnj9g6pj9"; // <- 실제 퍼가기 코드의 key로 맞추기
+  const ROUGHMAP_TIMESTAMP = "1771936585362";
+  const ROUGHMAP_KEY = "ibnwzvo9zrs"; // <- 실제 퍼가기 코드의 key로 맞추기
   const CONTAINER_ID = `daumRoughmapContainer${ROUGHMAP_TIMESTAMP}`;
 
   useEffect(() => {
@@ -74,12 +74,25 @@ const Location = () => {
       return;
     }
 
-    // ✅ roughmapLander.js 로드
+    // ✅ 카카오맵 설정 초기화 및 roughmapLander.js 로드
     const c = window.location.protocol === "https:" ? "https:" : "http:";
-    const a = "16137cec";
+    const a = "20250630";
+    const p = "prod";
+
+    window.daum = window.daum || {};
+    window.daum.roughmap = {
+      phase: p,
+      cdn: a,
+      URL_KEY_DATA_LOAD_PRE: c + "//t1.daumcdn.net/roughmap/",
+      url_protocal: c,
+      url_cdn_domain: "//t1.daumcdn.net",
+    };
+
     const src =
       c +
-      "//t1.daumcdn.net/kakaomapweb/place/jscss/roughmap/" +
+      "//t1.daumcdn.net/kakaomapweb/roughmap/place/" +
+      p +
+      "/" +
       a +
       "/roughmapLander.js";
 
@@ -87,7 +100,9 @@ const Location = () => {
     script.id = scriptId;
     script.src = src;
     script.async = true;
-    script.onload = renderMap;
+    script.onload = () => {
+      renderMap();
+    };
 
     document.head.appendChild(script);
 

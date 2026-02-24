@@ -6,8 +6,7 @@ import {
   GROOM_NAME,
   BRIDE_NAME,
 } from "../../config.js";
-import BackgroundVideo from "../assets/BackgroundVideo.mp4";
-import GroovePaper from "../assets/GroovePaper.png";
+import GalleryPhoto15 from "../assets/Gallery_Photo_15.jpg";
 
 const Layout = styled.div`
   width: 70%;
@@ -27,7 +26,7 @@ const TitleWrapper = styled.div`
   -o-animation: fadein 3s; /* Opera */
 `;
 
-const VideoBackground = styled.video`
+const ImageBackground = styled.img`
   width: 100%;
 `;
 
@@ -59,7 +58,7 @@ const Title = () => {
         <WeddingInvitation>WEDDING INVITATION</WeddingInvitation>
         <GroomBride>
           {/* {GROOM_NAME} &#38; {BRIDE_NAME} */}
-          {BRIDE_NAME} &#38; {GROOM_NAME}
+          {GROOM_NAME} &#38; {BRIDE_NAME}
         </GroomBride>
         <Schedule>
           {WEDDING_DATE}
@@ -67,9 +66,7 @@ const Title = () => {
           {WEDDING_LOCATION}
         </Schedule>
       </TitleWrapper>
-      <VideoBackground autoPlay loop muted playsInline={true}>
-        <source src={BackgroundVideo} type="video/mp4" />
-      </VideoBackground>
+      <ImageBackground src={GalleryPhoto15} alt="Wedding Gallery Photo 15" />
     </Layout>
   );
 };
