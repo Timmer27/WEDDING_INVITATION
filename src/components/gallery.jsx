@@ -28,7 +28,7 @@ import GalleryPhoto16 from "../assets/Gallery_Photo_16.jpg";
 import GalleryPhoto17 from "../assets/Gallery_Photo_17.jpg";
 import GalleryPhoto18 from "../assets/Gallery_Photo_18.jpg";
 import GalleryPhoto19 from "../assets/Gallery_Photo_19.jpg";
-import GalleryPhoto20 from "../assets/Gallery_Photo_20.webp";
+import GalleryPhoto20 from "../assets/Gallery_Photo_20.jpg";
 
 const Wrapper = styled.div`
   padding-top: 42px;
