@@ -12,6 +12,11 @@ import {
   BRIDE_NAME,
 } from "../../config";
 
+const KAKAO_SDK_ID = "kakao-jssdk";
+const KAKAO_SDK_SRC = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js";
+
+let kakaoSdkPromise;
+
 const Wrapper = styled.div`
   padding-top: 42px;
   width: 100%;
@@ -64,14 +69,58 @@ const LinkShareButton = styled(Button)`
   }
 `;
 
+const loadKakaoSdk = () => {
+  if (typeof window === "undefined") {
+    return Promise.reject(new Error("Window is not available"));
+  }
+
+  if (window.Kakao) {
+    return Promise.resolve(window.Kakao);
+  }
+
+  if (kakaoSdkPromise) {
+    return kakaoSdkPromise;
+  }
+
+  kakaoSdkPromise = new Promise((resolve, reject) => {
+    const existing = document.getElementById(KAKAO_SDK_ID);
+
+    if (existing) {
+      existing.addEventListener("load", () => resolve(window.Kakao), {
+        once: true,
+      });
+      existing.addEventListener("error", reject, { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = KAKAO_SDK_ID;
+    script.async = true;
+    script.src = KAKAO_SDK_SRC;
+    script.onload = () => resolve(window.Kakao);
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+
+  return kakaoSdkPromise;
+};
+
 const Share = () => {
-  const shareKakao = () => {
-    if (!window.Kakao) {
+  const shareKakao = async () => {
+    let kakao;
+
+    try {
+      kakao = await loadKakaoSdk();
+    } catch (error) {
+      message.error("移댁뭅??SDK媛 濡쒕뱶?섏? ?딆븯?듬땲??");
+      return;
+    }
+
+    if (!kakao) {
       message.error("카카오 SDK가 로드되지 않았습니다.");
       return;
     }
 
-    const kakao = window.Kakao;
 
     // 중복 initialization 방지
     if (!kakao.isInitialized()) {
