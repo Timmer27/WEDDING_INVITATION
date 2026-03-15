@@ -7,8 +7,9 @@ import {
   BRIDE_NAME,
   WEDDING_DATE2,
 } from "../../config.js";
+import GalleryPhoto15 from "../assets/Gallery_Photo_15.jpg";
 import OptimizedPicture from "./optimizedPicture";
-import { galleryHeroImage } from "../data/galleryImages";
+// import { galleryHeroImage } from "../data/galleryImages";
 
 const Layout = styled.div`
   width: 70%;
@@ -76,13 +77,14 @@ const Title = () => {
           {WEDDING_LOCATION}
         </Schedule>
       </TitleWrapper>
-      <ImageBackground
+      {/* <ImageBackground
         avifSrc={galleryHeroImage.avifSrc}
         webpSrc={galleryHeroImage.webpSrc}
         fallbackSrc={galleryHeroImage.fallbackSrc}
         alt={galleryHeroImage.alt}
         decoding="async"
-      />
+      /> */}
+      <ImageBackground src={GalleryPhoto15} alt="Wedding Gallery Photo 15" />      
     </Layout>
   );
 };

@@ -29,10 +29,21 @@ const Wrapper = styled.div`
 
 const IndexPage = () => {
   useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js";
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  useEffect(() => {
     AOS.init({
       duration: 1500,
     });
-  }, []);
+  });
   return (
     <Wrapper>
       <audio autoPlay loop>
