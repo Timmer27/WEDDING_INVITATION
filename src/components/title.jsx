@@ -7,7 +7,8 @@ import {
   BRIDE_NAME,
   WEDDING_DATE2,
 } from "../../config.js";
-import GalleryPhoto15 from "../assets/Gallery_Photo_15.jpg";
+import OptimizedPicture from "./optimizedPicture";
+import { galleryHeroImage } from "../data/galleryImages";
 
 const Layout = styled.div`
   width: 70%;
@@ -27,8 +28,14 @@ const TitleWrapper = styled.div`
   -o-animation: fadein 3s; /* Opera */
 `;
 
-const ImageBackground = styled.img`
+const ImageBackground = styled(OptimizedPicture)`
+  display: block;
   width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const WeddingInvitation = styled.p`
@@ -69,7 +76,13 @@ const Title = () => {
           {WEDDING_LOCATION}
         </Schedule>
       </TitleWrapper>
-      <ImageBackground src={GalleryPhoto15} alt="Wedding Gallery Photo 15" />
+      <ImageBackground
+        avifSrc={galleryHeroImage.avifSrc}
+        webpSrc={galleryHeroImage.webpSrc}
+        fallbackSrc={galleryHeroImage.fallbackSrc}
+        alt={galleryHeroImage.alt}
+        decoding="async"
+      />
     </Layout>
   );
 };
